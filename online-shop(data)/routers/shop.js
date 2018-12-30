@@ -7,7 +7,7 @@ const routers = express();
 
 routers.use(bodyParser.urlencoded());
 
-routers.get((req,res,next)=>{
+routers.get('/',(req,res,next)=>{
   fs.readFile(path.join(__dirname,'../data.json'),function(err,data){
     if(!err){
       const allData = JSON.parse(data);
