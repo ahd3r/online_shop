@@ -1,0 +1,22 @@
+{
+  "products":[
+    {
+      "id":1,
+      "call":"Book",
+      "price":"10$",
+      "image":"https://cdn.shopify.com/s/files/1/0051/7692/products/aba-000020-pp-5_660x@2x.progressive.jpg?v=1482334142",
+      "description":"Good book",
+      "exist":true,
+      "amount":3
+    },
+    {
+      "id":2,
+      "call":"T-Shirt",
+      "price":"15$",
+      "image":"https://lumiere-a.akamaihd.net/v1/images/file_bf3b6713.jpeg?width=1200&region=0%2C0%2C2000%2C2000&quality=8",
+      "description":"Good t-shirt",
+      "exist":false,
+      "amount":0
+    }
+  ]
+}
