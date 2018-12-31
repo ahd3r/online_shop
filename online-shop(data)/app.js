@@ -11,4 +11,4 @@ app.use(bodyParser.urlencoded());
 app.use('/admin',shopAdmin);
 app.use(shopRouters);
 
-app.listen(3000,()=>{console.log('Runing')});
+app.listen(3000,()=>{console.log('Runing api...')});
