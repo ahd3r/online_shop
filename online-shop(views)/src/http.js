@@ -14,9 +14,14 @@ class EasyHTTP{
     const response = await request.json(); // text()
     return response;
   }
+  async patch(url){
+    const request=await fetch(url, {method:'PATCH'});
+    const response = await request.json(); // text()
+    return response;
+  }
   async delete(url){
     const request = await fetch(url, {method:'DELETE'});
-    const  response= await request.text(); // json()
+    const  response= await request.json(); // text()
     return response;
   }
 }
