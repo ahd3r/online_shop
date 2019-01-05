@@ -2,33 +2,35 @@ import { http } from "./http";
 import { ui } from "./ui";
 import { adminUi } from "./ui-admin";
 
+//Create event listeners for two button
 document.querySelector('.shop').addEventListener('click',()=>{
-  if(location.href!=='http://localhost:4000/'){
-    location.href='http://localhost:4000/';
+  if(location.href!=='http://localhost:8080/'){
+    location.href='http://localhost:8080/';
   } else {
     ui.renderHome();
   }
 });
 document.querySelector('.products').addEventListener('click',()=>{
-  if(location.href==='http://localhost:4000/admin'){
+  if(location.href==='http://localhost:8080/admin'){
     http.get('http://localhost:3000/admin').then(data=>{
       adminUi.renderProductsInAdmin(data);
     }).catch(err=>{console.log(err)});
-  }else if(location.href==='http://localhost:4000/'){
+  }else if(location.href==='http://localhost:8080/'){
     http.get('http://localhost:3000/').then(data=>{
       ui.renderProducts(data);
     }).catch(err=>{console.log(err)});
   }
 });
 
-if(location.href==='http://localhost:4000/'){
+// Render first page
+if(location.href==='http://localhost:8080/'){
   ui.renderHome();
-} else if(location.href==='http://localhost:4000/admin'){
+} else if(location.href==='http://localhost:8080/admin'){
   const pass = prompt('Password for enter: ');
-  if(pass==='2/0/1/9'){
+  if(pass==='2/0/1/9'){ // password for enter in admin page
     adminUi.renderAdminHome();
   }else{
-    location.href='http://localhost:4000/';
+    location.href='http://localhost:8080/';
   }
 } else {
   ui.renderErrorPage();

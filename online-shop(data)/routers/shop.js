@@ -6,13 +6,14 @@ const path = require('path');
 const routers = express();
 
 routers.use(bodyParser.urlencoded());
+routers.use(bodyParser.json());
 
 routers.get('/',(req,res,next)=>{
   fs.readFile(path.join(__dirname,'../data.json'),function(err,data){
     if(!err){
       const allData = JSON.parse(data);
       const products = allData.products;
-      res.send(JSON.stringify(products));
+      res.send(products);
     }
   });
 });
@@ -25,11 +26,11 @@ routers.get('/:id',(req,res,next)=>{
       products.forEach((product,index)=>{
         if(product.id===parseInt(req.params.id)){
           done=true;
-          res.send(JSON.stringify(product));
+          res.send(product);
         }
       });
       if(!done){
-        res.send(JSON.stringify({error:'Wrong id'}));
+        res.send({error:'Wrong id'});
       }
     }
   });
@@ -43,13 +44,13 @@ routers.patch('/buy/:id',(req,res,next)=>{
       products.forEach((product,i)=>{
         if(product.id===parseInt(req.params.id)){
           done = true;
-          if(products[i].amount===1){
-            products[i].amount--;
-            products[i].exist = false;
-          } else if(products[i].amount===0){
-            return res.send(JSON.stringify({error:'Wait'}));
-          }else {
-            products[i].amount--;
+          if(product.amount===1){
+            product.amount--;
+            product.exist = false;
+          } else if(product.amount===0){
+            return res.send({error:'Wait'});
+          } else {
+            product.amount--;
           }
           db.products=products;
           fs.writeFile(path.join(__dirname,'../data.json'),JSON.stringify(db),(err)=>{
@@ -60,13 +61,13 @@ routers.patch('/buy/:id',(req,res,next)=>{
         }
       });
       if(!done){
-        res.send(JSON.stringify({error:'Wrong id'}));
+        res.send({error:'Wrong id'});
       }
     }
   });
 });
 routers.use((req,res,next)=>{
-  res.send(JSON.stringify({error:'404 (Shop)'}));
+  res.send({error:'404 (Shop)'});
 });
 
 module.exports=routers;

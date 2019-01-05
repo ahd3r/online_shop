@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 
 const shopRouters = require('./routers/shop');
 const shopAdmin = require('./routers/admin');
@@ -12,7 +11,6 @@ app.use((req,res,next)=>{
   res.header('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
-app.use(bodyParser.urlencoded());
 
 app.use('/admin/',shopAdmin);
 app.use('/',shopRouters);

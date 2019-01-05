@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js",
+    "start": "webpack-dev-server",
+    "done":"nodemon app.js",
     "build": "webpack"
   },
   "author": "Ander",
@@ -15,6 +16,7 @@
     "express": "^4.16.4",
     "nodemon": "^1.18.9",
     "webpack": "^4.28.3",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.14"
   }
 }
