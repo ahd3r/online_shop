@@ -62,7 +62,7 @@ class UI{
     document.querySelector('.doneForm').addEventListener('submit',(e)=>{
       e.preventDefault();
       const line = document.querySelectorAll(`.add>.card>.card-body>.doneForm>.form-control`);
-      const dataForAdd = {call:line[0].value,price:line[1].value,image:line[2].value,description:line[3].value,amount:parseInt(line[4].value)};
+      const dataForAdd = {call:line[0].value,price:parseFloat(line[1].value),image:line[2].value,description:line[3].value,amount:parseInt(line[4].value)};
       http.post('http://localhost:3000/admin/add',JSON.stringify(dataForAdd)).then(data=>{
         this.renderProductsInAdmin(data);
       }).catch(err=>{console.log(err)});
@@ -125,7 +125,7 @@ class UI{
     document.querySelector('.doneForm').addEventListener('submit',(e)=>{
       e.preventDefault();
       const line = document.querySelectorAll(`.p${d.id}>.card>.card-body>.doneForm>.form-control`);
-      const dataForUpdate = {id:d.id,call:line[0].value,price:line[1].value,image:line[2].value,description:line[3].value,amount:parseInt(line[4].value)};
+      const dataForUpdate = {id:parseInt(d.id),call:line[0].value,price:parseFloat(line[1].value),image:line[2].value,description:line[3].value,amount:parseInt(line[4].value)};
       http.put(`http://localhost:3000/admin/edit/${d.id}`,JSON.stringify(dataForUpdate)).then(data=>{
         this.renderProductsInAdmin(data);
       }).catch(err=>{console.log(err)});
@@ -164,7 +164,11 @@ class UI{
         document.querySelector(`.p${d.id}>.card>.card-body>h5`).textContent=d.call;
         document.querySelector(`.p${d.id}>.card>.card-body`).appendChild(cardBodyTitlePrice);
         document.querySelector(`.p${d.id}>.card>.card-body>h6`).className='card-text';
-        document.querySelector(`.p${d.id}>.card>.card-body>h6`).textContent=d.price;
+        if(d.price==='Free'){
+          document.querySelector(`.p${d.id}>.card>.card-body>h6`).textContent=d.price;
+        }else{
+          document.querySelector(`.p${d.id}>.card>.card-body>h6`).textContent=`${d.price}$`;
+        }
         document.querySelector(`.p${d.id}>.card>.card-body`).appendChild(cardBodyText);
         document.querySelector(`.p${d.id}>.card>.card-body>p`).className='card-text';
         document.querySelector(`.p${d.id}>.card>.card-body>p`).textContent=d.description;

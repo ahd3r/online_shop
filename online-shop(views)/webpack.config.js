@@ -7,5 +7,5 @@ module.exports = {
     filename: 'bundle.js',
     publicPath:'/dist'
   },
-  mode: 'development'
+  mode: 'production'
 };
