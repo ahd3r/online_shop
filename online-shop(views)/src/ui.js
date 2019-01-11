@@ -1,20 +1,13 @@
 import { http } from "./http";
 
 class UI{
-  renderErrorPage(err='Page not found'){
+  clearMainRow(){
     while(document.querySelector('.container-fluid>.row').firstChild){
       document.querySelector('.container-fluid>.row').firstChild.remove();
     }
-    const main = document.querySelector('.container-fluid>.row');
-    const errorMsg=document.createElement('div');
-    errorMsg.className = 'col err text-center';
-    errorMsg.appendChild(document.createElement('h1')).textContent=err;
-    main.appendChild(errorMsg);
   }
   renderProducts(data){
-    while(document.querySelector('.container-fluid>.row').firstChild){
-      document.querySelector('.container-fluid>.row').firstChild.remove();
-    }
+    this.clearMainRow();
     if(data.length!==0){
       data.forEach((d,i)=>{
         const product = document.createElement('div');
@@ -76,12 +69,11 @@ class UI{
     }
   }
   renderPageOfOneProduct(data){
+    this.clearMainRow();
     console.log(data);
   }
   renderHome(){
-    while(document.querySelector('.container-fluid>.row').firstChild){
-      document.querySelector('.container-fluid>.row').firstChild.remove();
-    }
+    this.clearMainRow();
     const main = document.querySelector('.container-fluid>.row');
     const msg=document.createElement('div');
     msg.className = 'col';

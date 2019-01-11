@@ -1,10 +1,9 @@
 import { http } from "./http";
+import { ui } from './ui';
 
 class UI{
   renderAdminHome(){
-    while(document.querySelector('.container-fluid>.row').firstChild){
-      document.querySelector('.container-fluid>.row').firstChild.remove();
-    }
+    ui.clearMainRow();
     const main = document.querySelector('.container-fluid>.row');
     const msg=document.createElement('div');
     msg.className = 'col';
@@ -132,9 +131,7 @@ class UI{
     });
   }
   renderProductsInAdmin(data){
-    while(document.querySelector('.container-fluid>.row').firstChild){
-      document.querySelector('.container-fluid>.row').firstChild.remove();
-    }
+    ui.clearMainRow();
     if(data.length!==0){
       data.forEach((d,i)=>{
         const product = document.createElement('div');

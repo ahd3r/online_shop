@@ -1,0 +1,11 @@
+a:hover{
+	color:black;
+	cursor: pointer;
+}
+.card-title:hover{
+	color:rgb(68, 68, 68);
+	cursor: pointer;
+}
+.rounded2{
+	border-radius: 5px;
+}

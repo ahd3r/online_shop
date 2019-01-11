@@ -1,6 +1,8 @@
 import { http } from "./http";
 import { ui } from "./ui";
 import { adminUi } from "./ui-admin";
+import { errorUi } from "./ui-error";
+import './style.css';
 
 //Create event listeners for two button
 document.querySelector('.shop').addEventListener('click',()=>{
@@ -33,5 +35,5 @@ if(location.href==='http://localhost:8080/'){
     location.href='http://localhost:8080/';
   }
 } else {
-  ui.renderErrorPage();
+  errorUi.renderErrorPage();
 }
