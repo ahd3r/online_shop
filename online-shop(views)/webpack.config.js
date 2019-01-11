@@ -13,7 +13,7 @@ module.exports = {
     path:path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
-  mode: 'development',
+  mode: 'production',
   module:{
     rules:[
       {
@@ -22,12 +22,11 @@ module.exports = {
       },
       {
         test:/\.css/,
-        use:[{
-          loader:extractCSS.loader,
-          options:{
-            use:'css-loader'
-          }
-        }]
+        use:[extractCSS.loader,'css-loader']
+      },
+      {
+        test:/\.html/,
+        use:'html-loader'
       }
     ]
   },
