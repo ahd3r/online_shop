@@ -1,5 +1,11 @@
 const path = require('path');
-const extractCSS = require('extract-text-webpack-plugin');
+const extractCSS = require('mini-css-extract-plugin');
+const separatedHTML = require('html-webpack-plugin');
+
+const fileHTML = new separatedHTML({
+  template:'./src/index.html',
+  minify:true
+});
 
 module.exports = {
   entry:'./src/index.js',
@@ -11,14 +17,24 @@ module.exports = {
   module:{
     rules:[
       {
+        test:/\.js/,
+        use:'babel-loader'
+      },
+      {
         test:/\.css/,
-        use:extractCSS.extract({
-          use:'css-loader'
-        })
+        use:[{
+          loader:extractCSS.loader,
+          options:{
+            use:'css-loader'
+          }
+        }]
       }
     ]
   },
   plugins:[
-    new extractCSS('main.css')
+    new extractCSS({
+      filename:'main.css'
+    }),
+    fileHTML
   ]
 };
