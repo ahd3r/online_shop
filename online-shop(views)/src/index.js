@@ -1,7 +1,7 @@
 import { http } from "./http";
-import { ui } from "./ui";
-import { adminUi } from "./ui-admin";
-import { errorUi } from "./ui-error";
+import { ui } from "./ui/ui";
+import { adminUi } from "./ui/ui-admin";
+import { errorUi } from "./ui/ui-error";
 import './style.css';
 
 //Create event listeners for two button

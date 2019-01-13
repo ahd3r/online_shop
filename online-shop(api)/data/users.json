@@ -1,0 +1,23 @@
+[
+  {
+    "id":1,
+    "username":"ahd3r",
+    "password":"hash",
+    "login":"root",
+    "email":"demo@demo.com"
+  },
+  {
+    "id":2,
+    "username":"alan18081",
+    "password":"hash",
+    "login":"rootTwo",
+    "email":"example@demo.com"
+  },
+  {
+    "id":3,
+    "username":"peyton",
+    "password":"hash",
+    "login":"rootThree",
+    "email":"demo@example.com"
+  }
+]

@@ -1,4 +1,4 @@
-import { http } from "./http";
+import { http } from "../http";
 import { ui } from './ui';
 
 class UI{
@@ -21,7 +21,7 @@ class UI{
     const price = document.createElement('input');
     price.className = 'form-control mb-2';
     price.type='text';
-    price.setAttribute('placeholder','Price');
+    price.setAttribute('placeholder','Price (0=Free)');
     const image = document.createElement('input');
     image.className = 'form-control mb-2';
     image.type='text';
@@ -79,7 +79,7 @@ class UI{
     const price = document.createElement('input');
     price.className = 'form-control mb-2';
     price.type='text';
-    price.setAttribute('placeholder','Price');
+    price.setAttribute('placeholder','Price (0=Free)');
     price.value=d.price;
     const image = document.createElement('input');
     image.className = 'form-control mb-2';

@@ -1,4 +1,4 @@
-import { http } from "./http";
+import { http } from "../http";
 
 class UI{
   clearMainRow(){
@@ -69,7 +69,6 @@ class UI{
     }
   }
   renderPageOfOneProduct(data){
-    this.clearMainRow();
     console.log(data);
   }
   renderHome(){
