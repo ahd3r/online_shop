@@ -36,7 +36,7 @@ class UI{
     amount.setAttribute('placeholder','Amount');
     const done = document.createElement('button');
     done.type='submit';
-    done.className='btn done btn-primary ml-auto';
+    done.className='btn done btn-primary';
     done.appendChild(document.createElement('i')).className='fas fa-check';
     const back = document.createElement('a');
     back.className='btn back btn-primary';
@@ -98,7 +98,7 @@ class UI{
     amount.value=d.amount;
     const done = document.createElement('button');
     done.type='submit';
-    done.className='btn done btn-primary ml-auto';
+    done.className='btn done btn-primary';
     done.appendChild(document.createElement('i')).className='fas fa-check';
     const back = document.createElement('a');
     back.className='btn back btn-primary';
@@ -161,8 +161,8 @@ class UI{
         document.querySelector(`.p${d.id}>.card>.card-body>h5`).textContent=d.call;
         document.querySelector(`.p${d.id}>.card>.card-body`).appendChild(cardBodyTitlePrice);
         document.querySelector(`.p${d.id}>.card>.card-body>h6`).className='card-text';
-        if(d.price==='Free'){
-          document.querySelector(`.p${d.id}>.card>.card-body>h6`).textContent=d.price;
+        if(d.price===0.00){
+          document.querySelector(`.p${d.id}>.card>.card-body>h6`).textContent='Free';
         }else{
           document.querySelector(`.p${d.id}>.card>.card-body>h6`).textContent=`${d.price}$`;
         }

@@ -32,8 +32,8 @@ class UI{
         document.querySelector(`.p${d.id}>.card>.card-body>h5`).textContent=d.call;
         document.querySelector(`.p${d.id}>.card>.card-body`).appendChild(cardBodyTitlePrice);
         document.querySelector(`.p${d.id}>.card>.card-body>h6`).className='card-text';
-        if(d.price==='Free'){
-          document.querySelector(`.p${d.id}>.card>.card-body>h6`).textContent=`${d.price}`;
+        if(d.price===0.00){
+          document.querySelector(`.p${d.id}>.card>.card-body>h6`).textContent='Free';
         }else{
           document.querySelector(`.p${d.id}>.card>.card-body>h6`).textContent=`${d.price}$`;
         }
