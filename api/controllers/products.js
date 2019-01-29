@@ -43,7 +43,7 @@ class ProductController{
       res.send({error:"Error in delete data from mysql"});
     });
   }
-  editProduct(req,res,next){
+  putProduct(req,res,next){
     actionWithBD.editProduct(req.body).then(data=>{
       actionWithBD.takeProducts().then(data=>{
         res.send(data[0]);
@@ -58,15 +58,10 @@ class ProductController{
   }
   buyProduct(req,res,next){
     actionWithBD.buyProduct(parseInt(req.params.id)).then(data=>{
-      actionWithBD.takeProducts().then(data=>{
-        res.send(data[0]);
-      }).catch(err=>{
-        console.log(err);
-        res.send({error:"Error in get data from mysql"});
-      });
+      res.send(data[0][0]);
     }).catch(err=>{
       console.log(err);
-      res.send({error:"Error in (patch) data from mysql"});
+      res.send({error:"Error in buy from mysql"});
     });
   }
 };

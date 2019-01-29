@@ -15,7 +15,7 @@ routers.post('/add',valid.checkData);
 routers.post('/add',controllers.postProduct);
 routers.put('/edit/:id',valid.checkId);
 routers.put('/edit/:id',valid.checkData);
-routers.put('/edit/:id',controllers.editProduct);
+routers.put('/edit/:id',controllers.putProduct);
 routers.delete('/delete/:id',valid.checkId);
 routers.delete('/delete/:id',controllers.deleteProduct);
 

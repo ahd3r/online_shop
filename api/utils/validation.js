@@ -19,7 +19,7 @@ class Validation{
   }
   checkData(req,res,next){
     const newProduct = req.body;
-    if(newProduct.product_name && typeof(parseFloat(newProduct.product_price))==='number' && newProduct.product_description && typeof(newProduct.amount)==='number'){
+    /*for adding*/ if(!newProduct.id_product && newProduct.product_name && typeof(parseFloat(newProduct.product_price))==='number' && newProduct.product_description && typeof(newProduct.amount)==='number'){
       if(newProduct.amount===0){
         newProduct.exist = 0;
       }else if(newProduct.amount>0){
@@ -29,9 +29,12 @@ class Validation{
       }
       if(newProduct.price<0){
         res.send({error:'Wrong price'});
+      }
+      if(!newProduct.product_image){
+        newProduct.product_image='null';
       }
       next();
-    } else if(typeof(newProduct.id_product)==='number' && newProduct.product_name && typeof(parseFloat(newProduct.product_price))==='number' && newProduct.product_description && typeof(newProduct.amount)==='number'){
+    } /* for eding*/ else if(typeof(newProduct.id_product)==='number' && newProduct.product_name && typeof(parseFloat(newProduct.product_price))==='number' && newProduct.product_description && typeof(newProduct.amount)==='number'){
       if(newProduct.amount===0){
         newProduct.exist = 0;
       }else if(newProduct.amount>0){
@@ -41,6 +44,12 @@ class Validation{
       }
       if(newProduct.price<0){
         res.send({error:'Wrong price'});
+      }
+      if(!newProduct.product_image){
+        newProduct.product_image='null';
+      }
+      if(parseInt(req.params.id)!==newProduct.id_product){
+        res.send({error:'Id is not mutch! (url and in new prod)'});
       }
       next();
     } else {
