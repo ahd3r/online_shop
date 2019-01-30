@@ -4,6 +4,8 @@ import { adminUi } from "./ui/ui-admin";
 import { errorUi } from "./ui/ui-error";
 import './style.css';
 
+// prod — product
+
 //Create event listeners for two button
 document.querySelector('.shop').addEventListener('click',()=>{
   if(location.href!=='http://localhost:8080/'){
